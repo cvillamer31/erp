@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "philstud_test",
+    "password": "ohsc^,H]=NDX",
+    "database": "philstud_TESTDB",
+    "host": "172.105.116.65",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "philstud_test",
+    "password": "ohsc^,H]=NDX",
+    "database": "philstud_TESTDB",
+    "host": "172.105.116.65",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "philstud_test",
+    "password": "ohsc^,H]=NDX",
+    "database": "philstud_TESTDB",
+    "host": "172.105.116.65",
+    "dialect": "mysql"
+  }
+}
