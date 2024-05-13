@@ -12,7 +12,15 @@ router.post("/login", async(req, res) => {
     try {
         const {username, password} = req.body
         const result = await User.findOne({ where: { userName: username }});
-       res.json(result)
+
+        bcrypt.compare(password, result.password, (err, data) => {
+            if(data){
+                res.json({ data: result, isLogin : data, msg: "Login Success" })
+            }else{
+                res.json({ isLogin : data, msg: " Failed Login"})
+            }
+        })
+      
     } catch (error) {
         console.log(error);
     }
@@ -39,7 +47,25 @@ router.post("/signup", async(req, res) => {
     }catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
-  }
+    }
+    
+})
+
+
+router.put("/update/:empno", async(req, res) => {
+    try{
+        res.json(req.params.empno)
+        const empno =  req.params.empno;
+        const Employee = await employee.create({ EmpNo: empno });
+
+        Employee.FirstName = "iglot";
+
+            await Employee.save();
+
+    }catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
     
 })
 
